@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/stylesLogin.css" />
+    <link rel="icon" type="image/x-icon" href="/images/logo/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <title>Entre - Zé Boné</title>
+  </head>
+  <body>
+  
+  <%- include('partials/header')%>
+  
+<!-------- LOGIN -------->
+
+      <div class="login">
+        <% if(typeof error !== 'undefined') { %>
+          <ul>
+            <li style="color:red"><%=error%></li>
+          </ul>
+        <%}%>
+  
+        
+        <div class="container" id="container">
+          <div class="form-container sign-in-container">
+            <form action="/users/login" method="POST">
+              <h1>Entre</h1>
+    
+              <input type="email" name="email" placeholder="Email" />
+              <input type="password" name="senha" placeholder="Senha" />
+              <!-- <a href="#">Esqueci minha senha</a> -->
+              <button id="entrar" type="submit">Entrar</button>
+            </form>
+          </div>
+          <div class="overlay-container">
+            <div class="overlay">
+              <div class="overlay-panel overlay-right">
+                <h1>Não tem conta?</h1>
+                <p>Faça seu cadastro!</p>
+                <button class="ghost" id="register"><a href="/users/cadastro"> Registre-se!</a>
+                
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+  <!-------- FOOTER -------->
+  <%- include('partials/footer')%>
+</body>
+</html>
+
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zé Boné - Tudo para sua cabeça</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/stylesheets/styleCadastro.css" />
+    <link rel="icon" type="image/x-icon" href="/images/logo/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <%- include('partials/header')%>
+    <!-- CADASTRO -->
+    <main>
+      <div class="main-container">
+        <div class="identificacao">
+          <h3>Informe seus dados:</h3>
+          <% if(typeof errors !== 'undefined') { %>
+          <ul>
+            <%for(let error of errors) {%>
+            <li><%=error.msg%></li>
+            <%}%>
+          </ul>
+          <div class="bloco-form">
+            <form id="form" action="/users/cadastro" method="POST">
+              <input class="email" type="email" id="Email" name="email" placeholder="E-mail*" value="<%=old.email%>">
+
+              <input type="text" id="CPF" name=" cpf" placeholder="CPF* (Somente números)" >
+              
+              <input type="text" id="nome" name="nome" placeholder="Nome *" value="<%=old.nome%>">
+              
+              <input type="text" id="sobrenome" name="sobrenome" placeholder="Sobrenome *" value="<%=old.sobrenome%>">
+              
+              <input type="date" id="data_nasc" name="data_nasc" placeholder="Data de nascimento*" value="<%=old.data_nasc%>">
+              
+              <input type="tel" id="tel" name="tel" placeholder="Telefone Celular*" value="<%=old.tel%>">
+              
+              <input type="text" d="cep" name="cep" placeholder="CEP* (Somente números)" value="<%=old.cep%>">
+              
+              <input type="text" id="endereco" name="endereco" placeholder="Endereço*" value="<%=old.endereco%>">
+              
+              <input type="number" id="complemento"name="complemento" placeholder="Número*" value="<%=old.complemento%>">
+              
+              <input type="text" id="cidade" name="cidade" placeholder="Cidade*" value="<%=old.cidade%>">
+              
+              <input type="text" name="estado" id="estado" placeholder="Selecione seu estado" value="<%=old.estado%>">
+              
+              <select name="genero" id="genero" value="<%=old.genero%>">
+                <option selected disabled>Selecione seu gênero:</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Outro">Outro</option>
+              </select>
+              
+              <input type="password" id="senha" name="senha" placeholder="Senha*" value="<%=old.senha%>">
+              
+              <input type="password" id="senha2" name="senha2" placeholder="Confirme sua Senha*" value="<%=old.senha2%>">
+              
+              <div class="segurança">
+                <img src="/images/icones/cadeado.png" width="20rem" />
+                <h4>Compras 100% seguras!</h4>
+              </div>
+              <h6>
+                Seus dados pessoais estão protegidos, todas suas informações são
+                criptografadas para sua segurança.
+              </h6>
+              <button type="submit">Criar cadastro</button>
+            </form>
+          </div>
+          <%} else {%>
+            <div class="bloco-form">
+              <form id="form" action="/users/cadastro" method="POST">
+                <input class="email" type="email" id="Email" name="email" placeholder="E-mail*">
+  
+                <input type="number" id="CPF" name=" cpf" placeholder="CPF* (Somente números)">
+                
+                <input type="text" id="nome" name="nome" placeholder="Nome *">
+                
+                <input type="text" id="sobrenome" name="sobrenome" placeholder="Sobrenome *">
+                
+                <input type="date" id="data_nasc" name="data_nasc" placeholder="Data de nascimento*">
+                
+                <input type="tel" id="tel" name="tel" placeholder="Telefone Celular*">
+                
+                <input type="text" d="cep" name="cep" placeholder="CEP* (Somente números)">
+                
+                <input type="text" id="endereco" name="endereco" placeholder="Endereço*">
+                
+                <input type="number" id="complemento"name="complemento" placeholder="Número*">
+                
+                <input type="text" id="cidade" name="cidade" placeholder="Cidade*">
+                
+                <input type="text" name="estado" id="estado" placeholder="Selecione seu estado">
+                
+                <select name="genero" id="genero">
+                  <option selected disabled>Selecione seu gênero:</option>
+                  <option value="Feminino">Feminino</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Outro">Outro</option>
+                </select>
+                
+                <input type="password" id="senha" name="senha" placeholder="Senha*">
+                
+                <input type="password" id="senha2" name="senha2" placeholder="Confirme sua Senha*">
+                
+                <div class="segurança">
+                  <img src="/images/icones/cadeado.png" width="20rem">
+                  <h4>Compras 100% seguras!</h4>
+                </div>
+                <h6>
+                  Seus dados pessoais estão protegidos, todas suas informações são
+                  criptografadas para sua segurança.
+                </h6>
+                <button type="submit">Criar cadastro</button>
+              </form>
+            </div>
+          <%}%>
+        </div>
+      </div>
+    </main>
+    <!-- FOOTER -->
+    <%- include('partials/footer')%>
+</body>
+<script src="/javascripts/endCompleteCadastro.js"></script>
+</html>
